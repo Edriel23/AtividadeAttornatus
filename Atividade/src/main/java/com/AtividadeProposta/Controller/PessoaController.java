@@ -29,6 +29,16 @@ public class PessoaController {
 	}
 	
 	@ResponseBody
+	@GetMapping ("/buscarPessoaId")
+	public ResponseEntity<?> buscarPessoaId (@RequestParam Integer id){
+		try {
+			return new ResponseEntity<>(pessoaService.buscarPessoaId(id), HttpStatus.OK);
+		}catch (RuntimeException e) {
+			return new ResponseEntity<>(e.getMessage(),HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@ResponseBody
 	@GetMapping ("/buscarPessoa")
 	public ResponseEntity<?> buscarPessoaNome (@RequestParam String Nome){
 		try {
@@ -42,5 +52,11 @@ public class PessoaController {
 	@GetMapping ("/buscarTodos")
 	public List <PessoaDto> getAllPessoas() {
 		return pessoaService.getAllPessoas();
+	}
+	
+	@ResponseBody
+	@PostMapping ("/editar")
+	public ResponseEntity<?> editarPessoa (@RequestBody PessoaDto pessoa, @RequestParam Integer id){
+		return new ResponseEntity<> (pessoaService.editar(pessoa, id), HttpStatus.OK);
 	}
 }

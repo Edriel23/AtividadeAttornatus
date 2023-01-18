@@ -10,6 +10,5 @@ import com.AtividadeProposta.Entity.PessoaEntity;
 @Repository
 public interface PessoaRepository extends JpaRepository<PessoaEntity, Integer>{
 
-	Optional <PessoaEntity> findByPessoa (String pessoa);
-	
+	Optional <PessoaEntity> findByName(String Nome);
 }

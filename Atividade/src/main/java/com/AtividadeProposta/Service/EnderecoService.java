@@ -1,5 +1,7 @@
 package com.AtividadeProposta.Service;
 
+import java.util.Optional;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,5 +24,10 @@ public class EnderecoService {
 		EnderecoEntity enderecoEntity = enderecoRepository.save(mapper.map(Endereco, EnderecoEntity.class));
 		return mapper.map(enderecoEntity, EnderecoDto.class);
 	}
+	
+	public EnderecoDto buscarEnderecoPrincipal(Integer IdPessoa) {
+		Optional <EnderecoEntity> enderecoEntity = enderecoRepository.findByFlPrincipalAndPessoaId(true, IdPessoa);
+		return mapper.map(enderecoEntity.get(), EnderecoDto.class);
+	}	
 
 }

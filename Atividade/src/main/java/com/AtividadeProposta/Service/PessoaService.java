@@ -23,13 +23,22 @@ public class PessoaService {
 	ModelMapper mapper;
 	
 	
-	public PessoaDto salvar (PessoaDto Pessoa) {
-		PessoaEntity pessoaEntity = pessoaRepository.save(mapper.map(Pessoa, PessoaEntity.class));
+	public PessoaDto salvar (PessoaDto pessoa) {
+		PessoaEntity pessoaEntity = pessoaRepository.save(mapper.map(pessoa, PessoaEntity.class));
 		return mapper.map(pessoaEntity, PessoaDto.class);
 	}
 	
-	public PessoaDto buscarPessoa (String pessoa) {
-		Optional <PessoaEntity> pessoaEntity = pessoaRepository.findByPessoa(pessoa);
+	public PessoaDto buscarPessoa (String nome) {
+		Optional <PessoaEntity> pessoaEntity = pessoaRepository.findByName(nome);
+		if (pessoaEntity.isPresent()) {
+			return mapper.map(pessoaEntity.get(), PessoaDto.class);
+		}else {
+			throw new RuntimeException("A pessoa não Exixte!!");
+		}
+	}
+	
+	public PessoaDto buscarPessoaId (Integer id) {
+		Optional <PessoaEntity> pessoaEntity = pessoaRepository.findById(id);
 		if (pessoaEntity.isPresent()) {
 			return mapper.map(pessoaEntity.get(), PessoaDto.class);
 		}else {
@@ -44,5 +53,12 @@ public class PessoaService {
 				.collect(Collectors.toList());
 	}
 	
-
+	public PessoaDto editar (PessoaDto pessoaDto, Integer id) {
+		PessoaEntity pessoaEntity = pessoaRepository.findById(id).get();
+		PessoaEntity pessoa = mapper.map(pessoaDto, PessoaEntity.class );
+		pessoaEntity.setNome(pessoa.getNome());
+		pessoaEntity.setDataDeNacimento(pessoa.getDataDeNacimento());
+		pessoaRepository.save(pessoaEntity);
+		return mapper.map(pessoaEntity, PessoaDto.class);
+	}
 }
