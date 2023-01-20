@@ -1,4 +1,4 @@
-package com.AtividadeProposta.Repository;
+package com.AtividadeProposta.Atividade.Repository;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.AtividadeProposta.Entity.EnderecoEntity;
+import com.AtividadeProposta.Atividade.Entity.EnderecoEntity;
 
 @Repository
 public interface EnderecoRepository extends JpaRepository <EnderecoEntity, Integer>{

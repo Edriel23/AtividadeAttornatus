@@ -1,4 +1,4 @@
-package com.AtividadeProposta.Service;
+package com.AtividadeProposta.Atividade.Service;
 
 import java.util.List;
 import java.util.Optional;
@@ -8,9 +8,9 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.AtividadeProposta.Dto.PessoaDto;
-import com.AtividadeProposta.Entity.PessoaEntity;
-import com.AtividadeProposta.Repository.PessoaRepository;
+import com.AtividadeProposta.Atividade.Dto.PessoaDto;
+import com.AtividadeProposta.Atividade.Entity.PessoaEntity;
+import com.AtividadeProposta.Atividade.Repository.PessoaRepository;
 
 @Service
 public class PessoaService {
@@ -28,8 +28,8 @@ public class PessoaService {
 		return mapper.map(pessoaEntity, PessoaDto.class);
 	}
 	
-	public PessoaDto buscarPessoa (String nome) {
-		Optional <PessoaEntity> pessoaEntity = pessoaRepository.findByName(nome);
+	public PessoaDto buscarPessoa (String nome){
+		Optional <PessoaEntity> pessoaEntity = pessoaRepository.findByNome(nome);
 		if (pessoaEntity.isPresent()) {
 			return mapper.map(pessoaEntity.get(), PessoaDto.class);
 		}else {

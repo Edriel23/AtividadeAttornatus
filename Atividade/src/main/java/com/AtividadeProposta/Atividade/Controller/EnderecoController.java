@@ -1,4 +1,4 @@
-package com.AtividadeProposta.Controller;
+package com.AtividadeProposta.Atividade.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.AtividadeProposta.Dto.EnderecoDto;
-import com.AtividadeProposta.Service.EnderecoService;
+import com.AtividadeProposta.Atividade.Dto.EnderecoDto;
+import com.AtividadeProposta.Atividade.Service.EnderecoService;
 
 @Controller
-@RequestMapping (name = "endereco")
+@RequestMapping (value = "endereco")
 public class EnderecoController {
 	
 	

@@ -1,24 +1,24 @@
-create table Pessoa(
-Id int auto_increment,
-Nome varchar (50),
-Data_De_Nacimento date,
-primary key (Id)
+create table pessoa(
+	id int auto_increment,
+	nome varchar(50),
+	data_de_nacimento date,
+	primary key (id)
 );
 
 
-create table Endereco(
-Id int auto_increment,
-Logradouro varchar(30),
-CEP varchar(15),
-Numero int,
-Cidade varchar (30),
-FlPrincipal boolean,
-primary key (Id)
+create table endereco(
+	id int auto_increment,
+	logradouro varchar(30),
+	cep varchar(15),
+	numero int,
+	cidade varchar (30),
+	fl_principal boolean,
+	primary key (id)
 );
 
-create table Pessoa_Endereco(
-Pessoa_id int,
-Endereco_id int,
-foreign key (Pessoa_id) references Pessoa(Id),
-foreign key (Endereco_id) references Endereco(Id)
+create table pessoa_endereco(
+	pessoa_id int,
+	endereco_id int,
+	foreign key (pessoa_id) references pessoa(id),
+	foreign key (endereco_id) references endereco(id)
 );

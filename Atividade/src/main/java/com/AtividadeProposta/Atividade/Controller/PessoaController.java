@@ -1,4 +1,4 @@
-package com.AtividadeProposta.Controller;
+package com.AtividadeProposta.Atividade.Controller;
 
 import java.util.List;
 
@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.AtividadeProposta.Dto.PessoaDto;
-import com.AtividadeProposta.Service.PessoaService;
+import com.AtividadeProposta.Atividade.Dto.PessoaDto;
+import com.AtividadeProposta.Atividade.Service.PessoaService;
 
 @Controller
-@RequestMapping (name = "pessoa")
+@RequestMapping (value = "pessoa")
 public class PessoaController {
 
 	

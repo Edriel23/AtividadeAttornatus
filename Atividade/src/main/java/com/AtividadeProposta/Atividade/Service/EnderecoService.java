@@ -1,4 +1,4 @@
-package com.AtividadeProposta.Service;
+package com.AtividadeProposta.Atividade.Service;
 
 import java.util.Optional;
 
@@ -6,9 +6,9 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.AtividadeProposta.Dto.EnderecoDto;
-import com.AtividadeProposta.Entity.EnderecoEntity;
-import com.AtividadeProposta.Repository.EnderecoRepository;
+import com.AtividadeProposta.Atividade.Dto.EnderecoDto;
+import com.AtividadeProposta.Atividade.Entity.EnderecoEntity;
+import com.AtividadeProposta.Atividade.Repository.EnderecoRepository;
 
 @Service
 public class EnderecoService {

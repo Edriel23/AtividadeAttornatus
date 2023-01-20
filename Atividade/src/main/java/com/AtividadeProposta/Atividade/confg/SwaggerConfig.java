@@ -1,4 +1,4 @@
-package com.AtividadeProposta.confg;
+package com.AtividadeProposta.Atividade.confg;
 
 import java.util.Arrays;
 import java.util.List;

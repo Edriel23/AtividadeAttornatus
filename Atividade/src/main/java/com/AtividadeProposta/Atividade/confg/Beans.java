@@ -1,4 +1,4 @@
-package com.AtividadeProposta.confg;
+package com.AtividadeProposta.Atividade.confg;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
